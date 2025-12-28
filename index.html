@@ -419,10 +419,14 @@
 
     <!-- FABs (Floating Action Buttons) -->
     <div class="fab-container">
-        <a href="#header" class="fab fab--top" id="scrollTopBtn" aria-label="Przewiń do góry">
+        <button class="fab fab--top" id="scrollTopBtn" aria-label="Przewiń do góry">
+            <svg class="fab-progress" viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="fab-progress__bg" cx="50" cy="50" r="46"/>
+                <circle class="fab-progress__bar" cx="50" cy="50" r="46" id="scrollProgress"/>
+            </svg>
             <i data-lucide="arrow-up" aria-hidden="true"></i>
-        </a>
-        <a href="https://wa.me/48796786510" class="fab fab--whatsapp" aria-label="Napisz na WhatsApp">
+        </button>
+        <a href="https://wa.me/48796786510" class="fab fab--whatsapp" aria-label="Napisz na WhatsApp" target="_blank" rel="noopener noreferrer">
             <i data-lucide="message-circle" aria-hidden="true"></i>
         </a>
     </div>

@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const header = document.getElementById('header');
     const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const scrollProgress = document.getElementById('scrollProgress');
+
+    // Circumference of the progress circle (2 * PI * r where r = 46)
+    const CIRCLE_CIRCUMFERENCE = 289;
 
     function handleScroll() {
         const scrollY = window.scrollY;
@@ -53,9 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTopBtn.classList.remove('visible');
             }
         }
+
+        // Update progress ring
+        if (scrollProgress) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? scrollY / docHeight : 0;
+            const offset = CIRCLE_CIRCUMFERENCE - (scrollPercent * CIRCLE_CIRCUMFERENCE);
+            scrollProgress.style.strokeDashoffset = offset;
+        }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Initial call to set correct state on page load
+    handleScroll();
 
     // =========================================================================
     // MOBILE MENU
