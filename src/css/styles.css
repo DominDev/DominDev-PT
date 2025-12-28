@@ -1214,6 +1214,17 @@ footer {
 .fab--whatsapp {
     background-color: var(--color-acid-lime);
     animation: pulse 3s infinite;
+    border: none;
+    outline: none;
+}
+
+.fab--whatsapp:focus {
+    outline: none;
+}
+
+.fab--whatsapp:focus-visible {
+    outline: 2px solid var(--color-off-white);
+    outline-offset: 2px;
 }
 
 @keyframes pulse {
@@ -1235,6 +1246,19 @@ footer {
     opacity: 0;
     pointer-events: none;
     transform: translateY(20px);
+    position: relative;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.fab--top:focus {
+    outline: none;
+}
+
+.fab--top:focus-visible {
+    outline: 2px solid var(--color-acid-lime);
+    outline-offset: 2px;
 }
 
 .fab--top.visible {
@@ -1243,8 +1267,44 @@ footer {
     transform: translateY(0);
 }
 
+/* Progress ring SVG */
+.fab-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* Start from top */
+    pointer-events: none;
+}
+
+.fab-progress__bg {
+    fill: none;
+    stroke: rgba(182, 255, 46, 0.15);
+    stroke-width: 4;
+}
+
+.fab-progress__bar {
+    fill: none;
+    stroke: var(--color-acid-lime);
+    stroke-width: 4;
+    stroke-linecap: round;
+    /* Circumference = 2 * PI * r = 2 * 3.14159 * 46 ≈ 289 */
+    stroke-dasharray: 289;
+    stroke-dashoffset: 289; /* Start empty, JS will update */
+    transition: stroke-dashoffset 0.1s ease-out;
+}
+
 .fab:hover {
     transform: translateY(-5px);
+}
+
+.fab--top:hover {
+    transform: translateY(-5px);
+}
+
+.fab--top:hover .fab-progress__bar {
+    filter: drop-shadow(0 0 6px rgba(182, 255, 46, 0.6));
 }
 
 /* ==========================================================================
