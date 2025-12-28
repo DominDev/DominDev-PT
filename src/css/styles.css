@@ -214,6 +214,18 @@ header {
     padding: 25px 0;
 }
 
+/* When mobile menu is open, raise header above overlay so hamburger (X) is visible */
+body.menu-open header {
+    z-index: 1200;
+    background: transparent;
+}
+
+/* Hide logo when menu is open - only show hamburger X */
+body.menu-open .logo {
+    opacity: 0;
+    pointer-events: none;
+}
+
 header.scrolled {
     background: rgba(11, 13, 16, 0.95);
     backdrop-filter: blur(10px);
@@ -335,7 +347,7 @@ header.scrolled .logo img {
     padding: 10px;
     padding-right: 0;
     position: relative;
-    z-index: 1001;
+    z-index: 1200; /* ABOVE overlay (z-index: 1100) */
     height: 44px;
 }
 
@@ -405,7 +417,7 @@ header.scrolled .logo img {
     box-shadow: 0 0 8px rgba(182, 255, 46, 0.6);
 }
 
-/* Mobile Menu Overlay - fullscreen */
+/* Mobile Menu Overlay - fullscreen, ABOVE header */
 .mobile-menu-overlay {
     display: none;
     flex-direction: column;
@@ -415,13 +427,13 @@ header.scrolled .logo img {
     width: 100%;
     height: 100vh;
     height: 100dvh; /* Dynamic viewport height for mobile browsers */
-    background: var(--color-charcoal); /* Solid background - no transparency */
-    padding: 100px 20px 40px; /* Top padding for header */
+    background-color: #0B0D10; /* Solid opaque background - same as charcoal */
+    padding: 100px 30px 40px; /* Top padding for hamburger button */
     text-align: center;
-    gap: 0;
+    gap: 5px;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1100; /* ABOVE header (z-index: 1000) */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -433,12 +445,14 @@ header.scrolled .logo img {
 /* Mobile menu links */
 .mobile-menu-overlay .mobile-link {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--color-off-white);
     text-decoration: none;
-    padding: 15px 0;
+    padding: 12px 0;
     letter-spacing: 2px;
     transition: var(--transition);
+    display: block;
+    width: 100%;
 }
 
 .mobile-menu-overlay .mobile-link:hover {
@@ -453,10 +467,11 @@ header.scrolled .logo img {
 
 /* CTA button in mobile menu */
 .mobile-menu-overlay .btn {
-    margin-top: 30px;
+    margin-top: 25px;
     padding: 12px 32px;
     font-size: 1rem;
     flex-shrink: 0;
+    align-self: center;
 }
 
 /* Mobile Menu Social Icons */
@@ -464,8 +479,8 @@ header.scrolled .logo img {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: auto; /* Push to bottom */
-    padding-top: 30px;
+    margin-top: 30px;
+    padding-top: 0;
     flex-shrink: 0;
 }
 
@@ -1412,22 +1427,23 @@ footer {
 
     /* Compact mobile menu for very small screens */
     .mobile-menu-overlay {
-        padding: 80px 15px 30px;
+        padding: 90px 20px 30px;
+        gap: 3px;
     }
 
     .mobile-menu-overlay .mobile-link {
-        font-size: 1.3rem;
-        padding: 12px 0;
+        font-size: 1.2rem;
+        padding: 10px 0;
     }
 
     .mobile-menu-overlay .btn {
-        margin-top: 20px;
-        padding: 10px 28px;
-        font-size: 0.95rem;
+        margin-top: 15px;
+        padding: 10px 24px;
+        font-size: 0.9rem;
     }
 
     .mobile-menu-social {
-        padding-top: 20px;
+        margin-top: 20px;
         gap: 15px;
     }
 
@@ -1445,32 +1461,34 @@ footer {
 /* Landscape mode on mobile - compact menu */
 @media (max-height: 500px) and (max-width: 768px) {
     .mobile-menu-overlay {
-        padding: 70px 20px 20px;
+        padding: 60px 20px 15px;
         justify-content: center;
+        gap: 2px;
     }
 
     .mobile-menu-overlay .mobile-link {
-        font-size: 1.1rem;
-        padding: 8px 0;
+        font-size: 1rem;
+        padding: 6px 0;
     }
 
     .mobile-menu-overlay .btn {
-        margin-top: 15px;
-        padding: 8px 24px;
-        font-size: 0.9rem;
+        margin-top: 10px;
+        padding: 8px 20px;
+        font-size: 0.85rem;
     }
 
     .mobile-menu-social {
-        padding-top: 15px;
+        margin-top: 10px;
+        gap: 12px;
     }
 
     .mobile-menu-social a {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
     }
 
     .mobile-menu-social svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 }
