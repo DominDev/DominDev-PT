@@ -63,23 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenuOverlay = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function toggleMenu() {
         if (!mobileMenuOverlay) return;
 
         const isActive = mobileMenuOverlay.classList.toggle('active');
+
+        // Toggle body class for hamburger X transform
+        document.body.classList.toggle('menu-open', isActive);
         document.body.style.overflow = isActive ? 'hidden' : 'auto';
 
         // Update ARIA attributes
         if (mobileMenuBtn) {
             mobileMenuBtn.setAttribute('aria-expanded', isActive);
-        }
-
-        // Trap focus when menu is open
-        if (isActive && mobileMenuClose) {
-            mobileMenuClose.focus();
+            mobileMenuBtn.setAttribute('aria-label', isActive ? 'Zamknij menu' : 'Otwórz menu');
         }
     }
 
@@ -92,10 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', toggleMenu);
-    }
-
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', toggleMenu);
     }
 
     mobileLinks.forEach(function(link) {

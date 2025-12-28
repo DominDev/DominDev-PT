@@ -115,19 +115,25 @@
         <a href="#plan" class="mobile-link">PLAN</a>
         <a href="#faq" class="mobile-link">FAQ</a>
         <a href="#contact" class="mobile-link">KONTAKT</a>
-        <a href="https://wa.me/48796786510" class="btn btn--primary" style="margin-top: 30px;">NAPISZ WIADOMOŚĆ</a>
-        <button class="mobile-menu-close" aria-label="Zamknij menu">
-            <i data-lucide="x" aria-hidden="true"></i>
-        </button>
+        <a href="https://wa.me/48796786510?text=Cześć Paweł, chcę zapisać się na pierwszy trening!" class="btn btn--primary">NAPISZ WIADOMOŚĆ</a>
+        <!-- Mobile Menu Social Icons -->
+        <div class="mobile-menu-social">
+            <a href="https://www.instagram.com/paweltracztrener/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i data-lucide="instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i data-lucide="facebook" aria-hidden="true"></i>
+            </a>
+        </div>
     </div>
 
     <!-- Header -->
     <header id="header">
         <nav class="container" aria-label="Główna nawigacja">
             <a href="#" class="logo">
-                <img src="assets/img/paweltracz-logo-big.webp" alt="Paweł Tracz Logo" width="120" height="55">
+                <span class="logo-text"><span class="logo-name">Paweł</span> <span class="logo-accent">Tracz</span></span>
             </a>
-            <div style="display: flex; align-items: center;">
+            <div class="nav-wrapper">
                 <ul class="nav-links">
                     <li><a href="#hero">Start</a></li>
                     <li><a href="#about">O mnie</a></li>
@@ -140,7 +146,11 @@
                     <a href="https://wa.me/48796786510?text=Cześć Paweł, chcę zapisać się na pierwszy trening!" class="btn btn--primary">Zapisz się</a>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobileMenu">
-                    <i data-lucide="menu" aria-hidden="true"></i>
+                    <span class="hamburger-icon" aria-hidden="true">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </span>
                 </button>
             </div>
         </nav>
@@ -393,7 +403,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="assets/img/paweltracz-logo-big.webp" alt="Paweł Tracz Logo" class="footer-logo" width="120" height="50" loading="lazy">
+            <img src="assets/img/paweltracz-logo-big.webp" alt="Paweł Tracz Logo" class="footer-logo" loading="lazy">
             <nav class="social-links" aria-label="Social media">
                 <a href="https://www.instagram.com/paweltracztrener/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <i data-lucide="instagram" aria-hidden="true"></i>
