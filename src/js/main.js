@@ -202,6 +202,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =========================================================================
+    // SCROLL TO TOP BUTTON
+    // =========================================================================
+
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
+            });
+        });
+    }
+
+    // =========================================================================
     // CURRENT YEAR IN FOOTER
     // =========================================================================
 
