@@ -1061,10 +1061,19 @@ header.scrolled .logo img {
     outline-offset: 4px;
 }
 
-.contact-btn i {
-    font-size: 2.5rem;
-    margin-right: 25px;
+.contact-btn i,
+.contact-btn svg {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    margin-right: 35px;
     color: var(--color-acid-lime);
+    flex-shrink: 0;
+}
+
+.contact-btn > i,
+.contact-btn > svg {
+    margin-left: 10px;
 }
 
 .contact-btn div span {
@@ -1082,20 +1091,7 @@ header.scrolled .logo img {
     letter-spacing: 1px;
 }
 
-.contact-address {
-    margin-top: 30px;
-}
-
-.contact-address p {
-    font-size: 1rem;
-    opacity: 0.7;
-}
-
-.contact-address i {
-    vertical-align: middle;
-    color: var(--color-acid-lime);
-    margin-right: 5px;
-}
+/* Address tile removed - now uses contact-btn style */
 
 /* Map wrapper */
 .map-wrapper {
