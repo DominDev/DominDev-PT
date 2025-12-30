@@ -964,8 +964,10 @@ header.scrolled .logo img {
     outline-offset: 4px;
 }
 
-.faq-question i {
+.faq-question i,
+.faq-question svg {
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .faq-answer {
@@ -984,7 +986,8 @@ header.scrolled .logo img {
     max-height: 300px;
 }
 
-.faq-item.active i {
+.faq-item.active i,
+.faq-item.active svg {
     transform: rotate(180deg);
     color: var(--color-acid-lime);
 }
